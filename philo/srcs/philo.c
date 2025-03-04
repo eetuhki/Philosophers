@@ -6,28 +6,30 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:56:29 by eelaine           #+#    #+#             */
-/*   Updated: 2025/02/27 23:12:21 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/04 15:12:19 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
 #include <stdbool.h>
 
-int	invalid_ac(int ac)
+static int	check_ac(int ac)
 {
 	if (ac < 5 || ac > 6)
-		return (err_usage());
+		return (FAIL);
 	return (SUCCESS);
 }
 
 int	main(int ac, char **av)
 {
-	t_ph	ph;
+	t_table	table;
 
-	memset(&ph, 0, sizeof(t_ph));
-	if (invalid_ac(ac))
-		return (FAIL);
-	if (parse(&ph, av))
+	memset(&table, 0, sizeof(t_table));
+	if (check_ac(ac))
+		return (guide());
+	if (check_av(&table, av))
+		return (guide());
+	if (init(&table))
 		return (FAIL);
 	return (SUCCESS);
 }

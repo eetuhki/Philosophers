@@ -6,21 +6,21 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:49:18 by eelaine           #+#    #+#             */
-/*   Updated: 2025/02/28 00:10:36 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/04 15:24:03 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-# include <limits.h>
-# include <pthread.h>
-# include <stdbool.h>
 # include <stdio.h>
+# include <limits.h>
 # include <stdlib.h>
 # include <string.h>
-# include <sys/time.h>
 # include <unistd.h>
+# include <pthread.h>
+# include <stdbool.h>
+# include <sys/time.h>
 
 # define SUCCESS 0
 # define FAIL 1
@@ -28,17 +28,29 @@
 
 typedef struct s_ph
 {
-	int		phils;
+	t_table			*table;
+	pthread_mutex_t	*l_fork;
+	pthread_mutex_t	*r_fork;
+	size_t			last_eat;
+	int				times_eaten;
+	int				id;
+	pthread_t		t;	
+}	t_ph;
+
+typedef struct s_table
+{
+	t_ph	*philos;
+	int		num_philos;
+	int		philos_full;
 	int		meals;
+	int		start;
+	int		stop;
 	size_t	die_t;
 	size_t	eat_t;
 	size_t	slp_t;
-}	t_ph;
+}	t_table;
 
-int		err_phils();
-int		err_range();
-int		err_usage();
-int		invalid_ac(int ac);
-int		parse(t_ph *ph, char **av);
+int		guide();
+int		check_av(t_table *table, char **av);
 
 #endif
