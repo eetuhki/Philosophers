@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 21:56:29 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/10 21:24:43 by eelaine          ###   ########.fr       */
+/*   Created: 2025/03/10 21:19:05 by eelaine           #+#    #+#             */
+/*   Updated: 2025/03/10 21:49:04 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
-#include <stdbool.h>
 
-static int	check_ac(int ac)
+int	create_threads(t_table *table)
 {
-	if (ac < 5 || ac > 6)
-		return (FAIL);
-	return (SUCCESS);
-}
+	int	i;
 
-int	main(int ac, char **av)
-{
-	t_table	table;
-
-	memset(&table, 0, sizeof(t_table));
-	if (check_ac(ac) == FAIL)
-		return (guide());
-	if (check_av(&table, av) == FAIL)
-		return (guide());
-	if (init(&table) == FAIL)
-		return (FAIL);
-	if (create_threads(&table) == FAIL)
-		return (FAIL);
+	pthread_mutex_lock(&table->lock);
+	i = -1;
+	while (++i < table->num_philos)
+	{
+		if (pthread_create(&table->philos[i].thread, NULL, &routine,
+			(void *)&table->philos[i]) != SUCCESS)
+			return (thread_fail(table, i));
+	}
+	
 	return (SUCCESS);
 }

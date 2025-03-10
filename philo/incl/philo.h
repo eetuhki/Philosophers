@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:49:18 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/10 11:45:55 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/10 21:48:42 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_ph
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*r_fork;
 	size_t			last_eat;
-	pthread_t		t;	
+	pthread_t		thread;	
 }	t_ph;
 
 typedef struct s_table
@@ -48,6 +48,7 @@ typedef struct s_table
 	size_t	die_t;
 	size_t	eat_t;
 	size_t	slp_t;
+	size_t	start_time;
 	pthread_mutex_t	lock;
 	pthread_mutex_t	*forks;
 }	t_table;

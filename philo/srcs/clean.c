@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 21:56:29 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/10 21:24:43 by eelaine          ###   ########.fr       */
+/*   Created: 2025/03/10 21:40:43 by eelaine           #+#    #+#             */
+/*   Updated: 2025/03/10 21:43:55 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
-#include <stdbool.h>
 
-static int	check_ac(int ac)
+void	clean_and_free(t_table *table)
 {
-	if (ac < 5 || ac > 6)
-		return (FAIL);
-	return (SUCCESS);
-}
+	int	i;
 
-int	main(int ac, char **av)
-{
-	t_table	table;
-
-	memset(&table, 0, sizeof(t_table));
-	if (check_ac(ac) == FAIL)
-		return (guide());
-	if (check_av(&table, av) == FAIL)
-		return (guide());
-	if (init(&table) == FAIL)
-		return (FAIL);
-	if (create_threads(&table) == FAIL)
-		return (FAIL);
-	return (SUCCESS);
+	i = -1;
+	while (++i < table->num_philos)
+		pthread_mutex_destroy(&table->forks[i]);
+	pthread_mutex_destroy(&table->lock);
+	free(table->philos);
+	free(table->forks);
 }
