@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:49:18 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/04 15:24:03 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:45:55 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@
 
 typedef struct s_ph
 {
+	int				times_eaten;
+	int				id;
 	t_table			*table;
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*r_fork;
 	size_t			last_eat;
-	int				times_eaten;
-	int				id;
 	pthread_t		t;	
 }	t_ph;
 
@@ -48,6 +48,8 @@ typedef struct s_table
 	size_t	die_t;
 	size_t	eat_t;
 	size_t	slp_t;
+	pthread_mutex_t	lock;
+	pthread_mutex_t	*forks;
 }	t_table;
 
 int		guide();

@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:56:29 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/04 15:12:19 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:05:12 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	main(int ac, char **av)
 	t_table	table;
 
 	memset(&table, 0, sizeof(t_table));
-	if (check_ac(ac))
+	if (check_ac(ac) == FAIL)
 		return (guide());
-	if (check_av(&table, av))
+	if (check_av(&table, av) == FAIL)
 		return (guide());
-	if (init(&table))
+	if (init(&table) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

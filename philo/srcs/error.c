@@ -6,11 +6,39 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:00:41 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/04 14:58:39 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/10 12:14:33 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
+
+int	fork_mutex_fail(t_table *table)
+{
+	perror("Error: Fork mutex initalization failed");
+	pthread_mutex_destroy(&table->lock);
+	free(table->forks);
+	return (FAIL);
+}
+
+int	forks_malloc_fail(t_table *table)
+{
+	perror("Error: Memory allocation for the forks failed");
+	pthread_mutex_destroy(&table->lock);
+	return (FAIL);
+}
+
+int	init_mutex_fail(t_table *table)
+{
+	free(table->philos);
+	perror("Error: Initialization failed: Mutex array");
+	return (FAIL);
+}
+
+int	philos_array_fail(void)
+{
+	perror("Error: Memory allocation failed: Philosophers' array");
+	return (FAIL);
+}
 
 int	guide()
 {
