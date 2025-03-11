@@ -6,7 +6,7 @@
 #    By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 21:43:59 by eelaine           #+#    #+#              #
-#    Updated: 2025/02/27 22:25:33 by eelaine          ###   ########.fr        #
+#    Updated: 2025/03/11 14:07:14 by eelaine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,19 @@ NAME = philo
 
 SRC_DIR = srcs
 SRCS = $(addprefix $(SRC_DIR)/, \
-		error.c \
+		_philo.c \
+		clean.c \
+		eat.c \
+		error_.c \
+		error_2.c \
+		init.c \
+		lock_.c \
+		lock_un.c \
+		monitor.c \
 		parse.c \
-		philo.c)
+		sleep.c \
+		threads.c \
+		utils.c)
 
 OBJ_DIR = objs
 OBJECTS	= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

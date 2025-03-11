@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:42:28 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/10 11:04:43 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/11 14:27:36 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ int	check_av(t_table *table, char **av)
 			return (FAIL);
 	}
 	if (store_args(table, av))
-			return (FAIL);
+		return (FAIL);
 	return (SUCCESS);
 }

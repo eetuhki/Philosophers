@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_2.c                                          :+:      :+:    :+:   */
+/*   lock_un.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 21:33:24 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 14:13:41 by eelaine          ###   ########.fr       */
+/*   Created: 2025/03/11 12:17:32 by eelaine           #+#    #+#             */
+/*   Updated: 2025/03/11 14:31:23 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
 
-int	thread_fail(t_table *table, int threads)
+void	unlock(t_ph *ph)
 {
-	clean_and_free(table, threads);
-	perror("Error: Thread creation failed");
-	return (FAIL);
+	pthread_mutex_unlock(&ph->table->lock);
+}
+
+void	unlock_table(t_table *table)
+{
+	pthread_mutex_unlock(&table->lock);
+}
+
+void	unlock_left_fork(t_ph *ph)
+{
+	pthread_mutex_unlock(ph->l_fork);
+}
+
+void	unlock_right_fork(t_ph *ph)
+{
+	pthread_mutex_unlock(ph->r_fork);
+}
+
+bool	unlock_forks(t_ph *ph)
+{
+	pthread_mutex_unlock(ph->l_fork);
+	pthread_mutex_unlock(ph->r_fork);
+	return (true);
 }

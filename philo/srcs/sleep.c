@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   sleep.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 21:56:29 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/10 21:24:43 by eelaine          ###   ########.fr       */
+/*   Created: 2025/03/11 13:38:59 by eelaine           #+#    #+#             */
+/*   Updated: 2025/03/11 14:31:42 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
-#include <stdbool.h>
 
-static int	check_ac(int ac)
+bool	philo_sleeps(t_ph *ph)
 {
-	if (ac < 5 || ac > 6)
-		return (FAIL);
-	return (SUCCESS);
-}
-
-int	main(int ac, char **av)
-{
-	t_table	table;
-
-	memset(&table, 0, sizeof(t_table));
-	if (check_ac(ac) == FAIL)
-		return (guide());
-	if (check_av(&table, av) == FAIL)
-		return (guide());
-	if (init(&table) == FAIL)
-		return (FAIL);
-	if (create_threads(&table) == FAIL)
-		return (FAIL);
-	return (SUCCESS);
+	if (should_stop(ph))
+		return (false);
+	print_time_and_action(ph, "sleeps");
+	if (philo_waits(ph, ph->table->slp_t))
+		return (false);
+	return (true);
 }

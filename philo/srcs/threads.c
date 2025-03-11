@@ -6,24 +6,67 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:05 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/10 21:49:04 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/11 14:34:00 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
 
+static	int	single_philo(t_ph *ph)
+{
+	size_t	time;
+
+	lock_left_fork(ph);
+	time = ph->table->start_time;
+	printf("%zu %d picks up a fork\n", (gettime() - time), 1);
+	philo_waits(&ph->table->philos[0], ph->table->die_t);
+	unlock_left_fork(ph);
+	return (SUCCESS);
+}
+
+static void	*start_routine(void *arg)
+{
+	t_ph	*ph;
+
+	ph = (t_ph *)arg;
+	lock(ph);
+	while (!ph->table->start)
+		usleep(1);
+	unlock(ph);
+	if (ph->table->num_philos == 1)
+	{
+		single_philo(ph);
+		return (ph);
+	}
+	philo_is_thinking(ph, 1);
+	while (!should_stop(ph))
+	{
+		if (philo_eats(ph) == false)
+			break ;
+		if (philo_sleeps(ph) == false)
+			break ;
+		if (!should_stop(ph))
+			philo_is_thinking(ph, 0);
+		else
+			break ;
+	}
+	return(ph);
+}
+
 int	create_threads(t_table *table)
 {
 	int	i;
 
-	pthread_mutex_lock(&table->lock);
+	lock_table(table);
 	i = -1;
 	while (++i < table->num_philos)
 	{
-		if (pthread_create(&table->philos[i].thread, NULL, &routine,
-			(void *)&table->philos[i]) != SUCCESS)
+		if (pthread_create(&table->philos[i].thread, NULL, &start_routine,
+				(void *)&table->philos[i]) != SUCCESS)
 			return (thread_fail(table, i));
 	}
-	
+	table->start = 1;
+	table->start_time = gettime();
+	unlock_table(table);
 	return (SUCCESS);
 }

@@ -6,11 +6,21 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:28:11 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/10 21:28:13 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/11 14:30:49 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
+
+static void	init_philo(t_table *table, t_ph *ph, int i)
+{
+	ph->l_fork = &table->forks[i];
+	ph->r_fork = &table->forks[(i + 1) % table->num_philos];
+	ph->id = i + 1;
+	ph->times_eaten = 0;
+	ph->last_eat = 0;
+	ph->table = table;
+}
 
 static int	init_arrays(t_table *table)
 {
@@ -35,20 +45,10 @@ static int	init_arrays(t_table *table)
 	return (SUCCESS);
 }
 
-static void	init_philo(t_table *table, t_ph *ph, int i)
-{
-	ph->l_fork = &table->forks[i];
-	ph->r_fork = &table->forks[(i + 1) % table->num_philos];
-	ph->id = i + 1;
-	ph->times_eaten = 0;
-	ph->last_eat = 0;
-	ph->table = table;
-}
-
 int	init(t_table *table)
 {
-	table->start = 0;
-	table->stop = 0;
+	table->start = false;
+	table->stop = false;
 	table->philos_full = 0;
 	if (table->philos)
 		free(table->philos);

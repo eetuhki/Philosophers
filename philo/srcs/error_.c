@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_1.c                                          :+:      :+:    :+:   */
+/*   error_.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:00:41 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/10 21:34:06 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/11 14:27:53 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	philos_array_fail(void)
 	return (FAIL);
 }
 
-int	guide()
+int	guide(void)
 {
 	printf("\n	Please launch ./philo with:\n\n");
 	printf("	1. the number of philosophers\n");
