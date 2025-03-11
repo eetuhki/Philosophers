@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:14:46 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 14:17:21 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/11 23:01:26 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ static bool	philo_dies(t_ph *ph)
 	if (!ph->table->stop)
 	{
 		time = gettime() - ph->table->start_time;
-		if ((time - ph->last_eat) > ph->table->die_t)
+		printf("%d alive %zu and should die %zu\n", ph->id, (time - ph->last_eat), ph->table->die_t);
+		if (time - ph->last_eat > ph->table->die_t)
 		{
+			ph->table->stop = true;
+			unlock(ph);
 			print_time_and_action(ph, "died");
 			return (true);
 		}
@@ -46,7 +49,7 @@ static bool	conditions_fulfilled(t_table *table)
 	num_philos = table->num_philos;
 	philos_full = table->philos_full;
 	unlock_table(table);
-	if (philos_full == num_philos)
+	if (table->meals != -1 && philos_full == num_philos)
 	{
 		lock_table(table);
 		table->stop = true;

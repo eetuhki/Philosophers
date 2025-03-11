@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 11:13:10 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 14:26:13 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/11 22:59:58 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ void	philo_is_thinking(t_ph *ph, int validate)
 		philo_waits(ph, ph->table->eat_t / 2);
 	}
 	if (!validate)
+	{
 		print_time_and_action(ph, "is thinking");
+	}
 }

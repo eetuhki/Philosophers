@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:42:28 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 14:27:36 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/11 22:19:42 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ static int	store_args(t_table *table, char **av)
 	table->meals = -1;
 	if (av[5])
 		table->meals = atoi_ph(av[5]);
+	printf("parse: table->num_philos: %d\n", table->num_philos);
+	printf("parse: table->die_t: %zu\n", table->die_t);
+	printf("parse: table->eat_t: %zu\n", table->eat_t);
+	printf("parse: table->slp_t: %zu\n", table->slp_t);
+	printf("parse: table->meals: %d\n\n", table->meals);
 	return (SUCCESS);
 }
 

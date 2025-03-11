@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:28:11 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 14:30:49 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/11 22:22:51 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ static void	init_philo(t_table *table, t_ph *ph, int i)
 	ph->times_eaten = 0;
 	ph->last_eat = 0;
 	ph->table = table;
+	printf("init_philo: left fork: %d\n", i);
+	printf("init_philo: right fork: %d\n", i + 1);
+	printf("init_philo: id: %d\n", ph->id);
+	printf("init_philo: times_eaten: %d\n\n", ph->times_eaten);
 }
 
 static int	init_arrays(t_table *table)
