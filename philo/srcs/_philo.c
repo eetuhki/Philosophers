@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   _philo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:56:29 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 10:13:54 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:08:19 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	memset(&table, 0, sizeof(t_table));
 	if (check_ac(ac) == FAIL)
 		return (guide());
-	if (check_av(&table, av) == FAIL)
+	if (check_av(&table, ac, av) == FAIL)
 		return (guide());
 	if (init(&table) == FAIL)
 		return (FAIL);

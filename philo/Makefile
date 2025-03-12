@@ -6,7 +6,7 @@
 #    By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 21:43:59 by eelaine           #+#    #+#              #
-#    Updated: 2025/03/11 14:07:14 by eelaine          ###   ########.fr        #
+#    Updated: 2025/03/12 13:25:05 by eelaine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
-	@echo "$(GREEN)philo compiled$(END_COLOR)"
+	@echo "$(GREEN)Philo compiled$(END_COLOR)"
 
 clean:
 	@$(RM) $(OBJ_DIR)
@@ -62,6 +62,7 @@ fclean:
 re: fclean all
 
 valgrind:
-	valgrind -v --leak-check=full --show-reachable=yes --track-origins=yes ./philo
+	valgrind --leak-check=full --show-reachable=yes --show-leak-kinds=all \
+	--track-origins=yes --track-fds=yes --trace-children=yes -s ./philo 
 
 .PHONY: all clean fclean re valgrind

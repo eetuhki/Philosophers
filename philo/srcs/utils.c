@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 11:13:10 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 22:59:58 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:13:05 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	philo_waits(t_ph *ph, size_t ms)
 	size_t	tmp;
 
 	tmp = gettime();
-	while ((gettime() - tmp) < ms)
+	while ((gettime() - tmp < ms))
 	{
-		usleep(500);
+		usleep(1);
 		if (should_stop(ph))
 			return (FAIL);
 	}

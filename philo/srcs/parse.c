@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:42:28 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 22:19:42 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:23:00 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	atoi_ph(char *s)
 	return ((int)res);
 }
 
-static int	store_args(t_table *table, char **av)
+static int	store_args(t_table *table, int ac, char **av)
 {
 	table->num_philos = atoi_ph(av[1]);
 	if (table->num_philos < 1 || table->num_philos > 200)
@@ -68,17 +68,12 @@ static int	store_args(t_table *table, char **av)
 	if (!table->slp_t)
 		return (FAIL);
 	table->meals = -1;
-	if (av[5])
+	if (ac == 6)
 		table->meals = atoi_ph(av[5]);
-	printf("parse: table->num_philos: %d\n", table->num_philos);
-	printf("parse: table->die_t: %zu\n", table->die_t);
-	printf("parse: table->eat_t: %zu\n", table->eat_t);
-	printf("parse: table->slp_t: %zu\n", table->slp_t);
-	printf("parse: table->meals: %d\n\n", table->meals);
 	return (SUCCESS);
 }
 
-int	check_av(t_table *table, char **av)
+int	check_av(t_table *table, int ac, char **av)
 {
 	int	i;
 
@@ -88,7 +83,7 @@ int	check_av(t_table *table, char **av)
 		if (atoi_ph(av[i]) == ERROR)
 			return (FAIL);
 	}
-	if (store_args(table, av))
+	if (store_args(table, ac, av))
 		return (FAIL);
 	return (SUCCESS);
 }

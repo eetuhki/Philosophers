@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:49:18 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/11 14:31:28 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:08:45 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_table
 }	t_table;
 
 //arg validation
-int		check_av(t_table *table, char **av);
+int		check_av(t_table *table, int ac, char **av);
 
 //clean
 void	clean_and_free(t_table *table, int threads);
