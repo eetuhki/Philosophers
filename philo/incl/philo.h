@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:49:18 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/12 15:08:45 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/18 15:56:40 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_table
 	int				num_philos;
 	int				philos_full;
 	int				meals;
+	int				init;
 	bool			start;
 	bool			stop;
 	size_t			die_t;
@@ -75,12 +76,12 @@ int		init(t_table *table);
 //lock and unlock
 void	lock(t_ph *ph);
 void	lock_table(t_table *table);
-void	lock_left_fork(t_ph *ph);
-void	lock_right_fork(t_ph *ph);
+void	lock_lf(t_ph *ph);
+void	lock_rf(t_ph *ph);
 void	unlock(t_ph *ph);
 void	unlock_table(t_table *table);
-void	unlock_left_fork(t_ph *ph);
-void	unlock_right_fork(t_ph *ph);
+void	unlock_lf(t_ph *ph);
+void	unlock_rf(t_ph *ph);
 bool	unlock_forks(t_ph *ph);
 
 //monitor
@@ -97,7 +98,7 @@ int		create_threads(t_table *table);
 
 //utils
 size_t	gettime(void);
-void	print_time_and_action(t_ph *ph, char *action);
+void	print_time_and_action(t_ph *ph, char *action, int protect);
 bool	should_stop(t_ph *ph);
 
 #endif

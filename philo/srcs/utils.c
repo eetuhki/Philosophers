@@ -6,16 +6,18 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 11:13:10 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/12 15:13:05 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/18 15:58:24 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
 
-void	print_time_and_action(t_ph *ph, char *action)
+void	print_time_and_action(t_ph *ph, char *action, int protect)
 {
 	size_t	time;
 
+	if (ph->table->stop && protect)
+		return ;
 	lock(ph);
 	time = gettime() - ph->table->start_time;
 	printf("%zu %d %s\n", time, ph->id, action);
@@ -33,7 +35,7 @@ size_t	gettime(void)
 bool	should_stop(t_ph *ph)
 {
 	lock(ph);
-	if (ph->table->stop)
+	if (ph->table->stop || ph->table->philos_full == ph->table->num_philos)
 	{
 		unlock(ph);
 		return (true);
@@ -49,7 +51,7 @@ int	philo_waits(t_ph *ph, size_t ms)
 	tmp = gettime();
 	while ((gettime() - tmp < ms))
 	{
-		usleep(1);
+		usleep(500);
 		if (should_stop(ph))
 			return (FAIL);
 	}
@@ -60,11 +62,27 @@ void	philo_is_thinking(t_ph *ph, int validate)
 {
 	if (validate && !(ph->id % 2))
 	{
-		print_time_and_action(ph, "is thinking");
-		philo_waits(ph, ph->table->eat_t / 2);
+		if (ph->table->init)
+		{
+			print_time_and_action(ph, "is thinking", 1);
+			philo_waits(ph, ph->table->eat_t);
+			ph->table->init = 0;
+		}
+	}
+	if (validate && (ph->table->num_philos % 2)
+		&& ph->id == ph->table->num_philos)
+	{
+		if (ph->table->init)
+		{
+			print_time_and_action(ph, "is thinking", 1);
+			philo_waits(ph, ph->table->eat_t);
+			ph->table->init = 0;
+		}
 	}
 	if (!validate)
 	{
-		print_time_and_action(ph, "is thinking");
+		print_time_and_action(ph, "is thinking", 1);
+		if (ph->table->slp_t < ph->table->eat_t)
+			philo_waits(ph, ph->table->eat_t - ph->table->slp_t);
 	}
 }

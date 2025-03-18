@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:14:46 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/12 15:41:31 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/18 15:58:06 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static bool	philo_dies(t_ph *ph)
 		{
 			ph->table->stop = true;
 			unlock(ph);
-			print_time_and_action(ph, "died");
+			print_time_and_action(ph, "died", 0);
 			return (true);
 		}
 	}

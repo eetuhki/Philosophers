@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:05 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/12 15:37:40 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/18 15:44:58 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static	int	single_philo(t_ph *ph)
 {
 	size_t	time;
 
-	lock_left_fork(ph);
+	lock_lf(ph);
 	time = ph->table->start_time;
 	printf("%zu %d has taken a fork\n", (gettime() - time), 1);
 	philo_waits(&ph->table->philos[0], ph->table->die_t);
-	unlock_left_fork(ph);
+	unlock_lf(ph);
 	return (SUCCESS);
 }
 
@@ -50,7 +50,7 @@ static void	*start_routine(void *arg)
 		else
 			break ;
 	}
-	return(ph);
+	return (ph);
 }
 
 int	create_threads(t_table *table)

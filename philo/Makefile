@@ -6,7 +6,7 @@
 #    By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 21:43:59 by eelaine           #+#    #+#              #
-#    Updated: 2025/03/12 13:25:05 by eelaine          ###   ########.fr        #
+#    Updated: 2025/03/18 11:39:23 by eelaine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJ_DIR = objs
 OBJECTS	= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./incl
 
 RM = rm -rf
@@ -61,8 +61,4 @@ fclean:
 
 re: fclean all
 
-valgrind:
-	valgrind --leak-check=full --show-reachable=yes --show-leak-kinds=all \
-	--track-origins=yes --track-fds=yes --trace-children=yes -s ./philo 
-
-.PHONY: all clean fclean re valgrind
+.PHONY: all clean fclean re
