@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:49:18 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/18 15:56:40 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/19 15:22:06 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int		forks_malloc_fail(t_table *table);
 int		guide(void);
 int		init_mutex_fail(t_table *table);
 int		philos_array_fail(void);
-int		thread_fail(t_table *table, int threads);
 
 //initialization
 int		init(t_table *table);
@@ -89,7 +88,6 @@ void	monitor(t_table *table);
 
 //philosopher actions
 bool	philo_eats(t_ph *ph);
-bool	philo_sleeps(t_ph *ph);
 int		philo_waits(t_ph *ph, size_t ms);
 void	philo_is_thinking(t_ph *ph, int validate);
 

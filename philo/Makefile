@@ -6,7 +6,7 @@
 #    By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 21:43:59 by eelaine           #+#    #+#              #
-#    Updated: 2025/03/18 11:39:23 by eelaine          ###   ########.fr        #
+#    Updated: 2025/03/19 15:22:13 by eelaine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,12 @@ SRCS = $(addprefix $(SRC_DIR)/, \
 		_philo.c \
 		clean.c \
 		eat.c \
-		error_.c \
-		error_2.c \
+		error.c \
 		init.c \
 		lock_.c \
 		lock_un.c \
 		monitor.c \
 		parse.c \
-		sleep.c \
 		threads.c \
 		utils.c)
 

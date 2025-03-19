@@ -6,11 +6,28 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:05 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/18 15:44:58 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/19 15:21:54 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
+
+static bool	philo_sleeps(t_ph *ph)
+{
+	if (should_stop(ph))
+		return (false);
+	print_time_and_action(ph, "is sleeping", 1);
+	if (philo_waits(ph, ph->table->slp_t))
+		return (false);
+	return (true);
+}
+
+static int	thread_fail(t_table *table, int threads)
+{
+	clean_and_free(table, threads);
+	perror("Error: Thread creation failed");
+	return (FAIL);
+}
 
 static	int	single_philo(t_ph *ph)
 {
