@@ -1,14 +1,15 @@
 # 🍝 **Philosophers**
 
-Solving the classic [*Dining Philosophers*](https://en.wikipedia.org/wiki/Dining_philosophers_problem) problem using threads and mutex locks.
+Solving the classic [*Dining Philosophers*](https://en.wikipedia.org/wiki/Dining_philosophers_problem) problem in C, using threads and mutex locks.
 
 Picture this:
 Five philosophers sit around a circular table with a bowl of spaghetti. 
 There's five forks, but each philosopher needs **two forks** to eat.
+
 Who gets the forks first? The hungriest philosopher of course! 
 And remember philosophers need to sleep and do some thinking too..!
 
-💡 What This Project Demonstrates
+## Key concepts to tackle
 
 - **Thread Management**: Creating and coordinating multiple threads safely
 - **Mutex Synchronization**: Protecting shared resources (forks) from data race conditions  
@@ -16,17 +17,29 @@ And remember philosophers need to sleep and do some thinking too..!
 - **Resource Scheduling**: Ensuring fair access to limited resources
 - **Performance Optimization**: Balancing efficiency with safety in concurrent systems
 
-🛠️ Technical Implementation
-
-- **Language**: C
-- **Concurrency Model**: POSIX threads (pthreads)
-- **Synchronization**: Mutex locks for fork management
-- **Memory Management**: Clean memory allocation and free'ing with no leaks
-
-🚀 Key Features
+## Solution
 
 - ⚡ **Zero Deadlocks**: Bulletproof synchronization strategy
 - 🔄 **Fair Resource Distribution**: No philosopher starves
 - 📊 **Real-time Monitoring**: Live status updates for each philosopher
 - 🧠 **Memory Safe**: Valgrind-clean implementation
 - ⚙️ **Configurable Parameters**: Adjustable timing and philosopher count
+
+## Installation
+
+Clone the repo and run **make**
+
+## Usage
+
+Please launch ./philo with the following arguments:
+  1. the number of philosophers
+  2. the time (in ms) when a philosopher should die
+  3. the time (in ms) it takes for a philosopher to eat
+  4. the time (in ms) a philosopher will spend sleeping
+  (optional)
+  5. the number of times each philosopher eats
+
+## Examples
+
+./philo 3 800 200 200
+./philo 100 600 300 100 5
