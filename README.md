@@ -1,9 +1,12 @@
-🍝 Philosophers
+🍝 **Philosophers**
+
 Solving the classic *Dining Philosophers* problem using threads and mutex locks.
 
 Picture this:
-Five philosophers sit around a circular table with a bowl of spaghetti. There's five forks, but each philosopher needs **two forks** to eat.
-Who gets the forks first? The hungriest philosopher of course! And remember philosophers need to sleep and do some thinking too!
+Five philosophers sit around a circular table with a bowl of spaghetti. 
+There's five forks, but each philosopher needs **two forks** to eat.
+Who gets the forks first? The hungriest philosopher of course! 
+And remember philosophers need to sleep and do some thinking too..!
 
 💡 What This Project Demonstrates
 
