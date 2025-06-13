@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:28:11 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/18 13:52:38 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/24 12:26:40 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,8 @@ int	init(t_table *table)
 {
 	table->start = false;
 	table->stop = false;
-	table->philos_full = 0;
 	table->init = 1;
-	if (table->meals == 0)
-	{
-		table->philos_full = table->num_philos;
-		table->stop = true;
-	}
+	table->philos_full = 0;
 	if (table->philos)
 		free(table->philos);
 	table->philos = malloc(table->num_philos * sizeof(t_ph));
