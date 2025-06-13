@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:05 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/19 15:21:54 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/25 12:54:34 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	thread_fail(t_table *table, int threads)
 	return (FAIL);
 }
 
-static	int	single_philo(t_ph *ph)
+static void	*single_philo(t_ph *ph)
 {
 	size_t	time;
 
@@ -38,7 +38,7 @@ static	int	single_philo(t_ph *ph)
 	printf("%zu %d has taken a fork\n", (gettime() - time), 1);
 	philo_waits(&ph->table->philos[0], ph->table->die_t);
 	unlock_lf(ph);
-	return (SUCCESS);
+	return (ph);
 }
 
 static void	*start_routine(void *arg)
@@ -50,20 +50,22 @@ static void	*start_routine(void *arg)
 	while (!ph->table->start)
 		usleep(1);
 	unlock(ph);
-	while (!should_stop(ph))
+	while (1)
 	{
 		if (ph->table->num_philos == 1)
-		{
-			single_philo(ph);
-			return (ph);
-		}
+			return (single_philo(ph));
 		philo_is_thinking(ph, 1);
+		if (ph->id % 2 == 0)
+			philo_waits(ph, 10);
 		if (philo_eats(ph) == false)
 			break ;
 		if (philo_sleeps(ph) == false)
 			break ;
 		if (!should_stop(ph))
+		{
 			philo_is_thinking(ph, 0);
+			usleep(100);
+		}
 		else
 			break ;
 	}
