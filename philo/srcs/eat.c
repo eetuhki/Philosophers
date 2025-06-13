@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 11:59:58 by eelaine           #+#    #+#             */
-/*   Updated: 2025/06/13 15:26:02 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/06/13 15:38:46 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	take_forks(t_ph *ph)
 		print_time_and_action(ph, "has taken a fork", 1);
 		lock_rf(ph);
 		print_time_and_action(ph, "has taken a fork", 1);
-	}	
+	}
 	if (should_stop(ph))
 		return (unlock_forks(ph));
 	return (SUCCESS);
