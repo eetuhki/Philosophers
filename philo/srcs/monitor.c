@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:14:46 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/18 15:58:06 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/06/13 15:28:37 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	monitor(t_table *table)
 {
 	while (1)
 	{
+		usleep(1);
 		if (conditions_fulfilled(table) == true)
 			break ;
 	}
