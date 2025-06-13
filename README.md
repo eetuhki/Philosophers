@@ -11,19 +11,23 @@ And remember philosophers need to sleep and do some thinking too..!
 
 ## Key concepts to tackle
 
-- **Thread Management**: Creating and coordinating multiple threads safely
-- **Mutex Synchronization**: Protecting shared resources (forks) from data race conditions  
-- **Deadlock Prevention**: Implementing strategies to avoid circular wait conditions
-- **Resource Scheduling**: Ensuring fair access to limited resources
-- **Performance Optimization**: Balancing efficiency with safety in concurrent systems
+**Thread Management**
+  Creating and coordinating multiple threads safely
+**Mutex Synchronization**
+  Protecting shared resources (forks) from data race conditions  
+**Deadlock Prevention**
+  Implementing strategies to avoid circular wait conditions
+**Resource Scheduling**
+  Ensuring fair access to limited resources
+**Performance Optimization**: Balancing efficiency with safety in concurrent systems
 
 ## Solution
 
-- ⚡ **Zero Deadlocks**: Bulletproof synchronization strategy
-- 🔄 **Fair Resource Distribution**: No philosopher starves
-- 📊 **Real-time Monitoring**: Live status updates for each philosopher
-- 🧠 **Memory Safe**: Valgrind-clean implementation
-- ⚙️ **Configurable Parameters**: Adjustable timing and philosopher count
+⚡ **Zero Deadlocks**: Bulletproof synchronization strategy
+🔄 **Fair Resource Distribution**: No philosopher starves
+📊 **Real-time Monitoring**: Live status updates for each philosopher
+🧠 **Memory Safe**: Valgrind-clean implementation
+⚙️ **Configurable Parameters**: Adjustable timing and philosopher count
 
 ## Installation
 
@@ -31,7 +35,7 @@ Clone the repo and run **make**
 
 ## Usage
 
-Please launch ./philo with the following arguments:
+Please launch **./philo** with the following arguments:
   1. the number of philosophers
   2. the time (in ms) when a philosopher should die
   3. the time (in ms) it takes for a philosopher to eat
@@ -41,5 +45,6 @@ Please launch ./philo with the following arguments:
 
 ## Examples
 
-  `./philo 3 800 200 200
-  ./philo 100 600 300 100 5`
+`./philo 3 800 200 200`
+
+`./philo 100 600 300 100 5`
