@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 11:59:58 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/18 15:57:48 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/06/13 15:26:02 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ static int	take_forks(t_ph *ph)
 
 bool	philo_eats(t_ph *ph)
 {
-	if (should_stop(ph))
-		return (false);
 	if (take_forks(ph) == FAIL)
 		return (false);
 	print_time_and_action(ph, "is eating", 1);
