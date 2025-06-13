@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:42:28 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/24 12:13:46 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/06/13 15:30:30 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static int	store_args(t_table *table, int ac, char **av)
 	table->meals = -1;
 	if (ac == 6)
 		table->meals = atoi_ph(av[5]);
+	if (!table->meals)
+		return (FAIL);
 	return (SUCCESS);
 }
 
