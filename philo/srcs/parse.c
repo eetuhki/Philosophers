@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:42:28 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/12 15:23:00 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/24 12:13:46 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	atoi_ph(char *s)
 static int	store_args(t_table *table, int ac, char **av)
 {
 	table->num_philos = atoi_ph(av[1]);
-	if (table->num_philos < 1 || table->num_philos > 200)
+	if (table->num_philos < 1 || table->num_philos > 1000)
 		return (FAIL);
 	table->die_t = atoi_ph(av[2]);
 	if (!table->die_t)
