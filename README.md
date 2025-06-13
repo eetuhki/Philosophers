@@ -11,26 +11,22 @@ The hungriest philosopher of course!
 
 And remember philosophers need to sleep and do some thinking too..!
 
-## Key concepts to tackle
+## Key concepts
 
 **Thread Management**  
   Creating and coordinating multiple threads safely  
+  
 **Mutex Synchronization**  
   Protecting shared resources (forks) from data race conditions  
+  
 **Deadlock Prevention**  
   Implementing strategies to avoid circular wait conditions  
+  
 **Resource Scheduling**  
   Ensuring fair access to limited resources  
+  
 **Performance Optimization**  
   Balancing efficiency with safety in concurrent systems  
-
-## Solution
-
-⚡ **Zero Deadlocks**: Bulletproof synchronization strategy  
-🔄 **Fair Resource Distribution**: No philosopher starves  
-📊 **Real-time Monitoring**: Live status updates for each philosopher  
-🧠 **Memory Safe**: Valgrind-clean implementation  
-⚙️ **Configurable Parameters**: Adjustable timing and philosopher count
 
 ## Installation
 
