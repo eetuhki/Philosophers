@@ -6,12 +6,11 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:56:29 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/18 15:43:50 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/06/13 15:23:36 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/philo.h"
-#include <stdbool.h>
 
 static int	check_ac(int ac)
 {
