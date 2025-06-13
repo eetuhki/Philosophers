@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 21:49:18 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/19 15:22:06 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/24 12:26:56 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ typedef struct s_table
 	int				num_philos;
 	int				philos_full;
 	int				meals;
-	int				init;
 	bool			start;
 	bool			stop;
+	int				init;
 	size_t			die_t;
 	size_t			eat_t;
 	size_t			slp_t;
