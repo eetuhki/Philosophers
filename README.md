@@ -1,4 +1,4 @@
-# 🍝 **Philosophers**
+# **Philosophers** 🍝  
 
 Solving the classic [*Dining Philosophers*](https://en.wikipedia.org/wiki/Dining_philosophers_problem) problem in **C**, using **threads** and **mutex locks**.
 
@@ -6,10 +6,10 @@ Picture this:
 Five philosophers sit around a circular table with a bowl of spaghetti.  
 There's five forks, but each philosopher needs **two forks** to eat.
 
-Who gets the forks first?  
-The hungriest philosopher of course!  
+Who should get the forks?  
+The hungriest philosophers of course!  
 
-And remember philosophers need to sleep and do some thinking too..!
+And remember philosophers need to sleep and do some thinking as well..
 
 ## Key concepts
 
