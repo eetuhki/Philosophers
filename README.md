@@ -1,6 +1,6 @@
 # 🍝 **Philosophers**
 
-Solving the classic [*Dining Philosophers*](https://en.wikipedia.org/wiki/Dining_philosophers_problem) problem in C, using threads and mutex locks.
+Solving the classic [*Dining Philosophers*](https://en.wikipedia.org/wiki/Dining_philosophers_problem) problem in **C**, using **threads** and **mutex locks**.
 
 Picture this:
 Five philosophers sit around a circular table with a bowl of spaghetti. 
@@ -41,5 +41,5 @@ Please launch ./philo with the following arguments:
 
 ## Examples
 
-./philo 3 800 200 200
-./philo 100 600 300 100 5
+  `./philo 3 800 200 200
+  ./philo 100 600 300 100 5`
