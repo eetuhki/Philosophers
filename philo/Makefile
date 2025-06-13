@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/02/25 21:43:59 by eelaine           #+#    #+#              #
-#    Updated: 2025/03/19 15:22:13 by eelaine          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = philo
 
 SRC_DIR = srcs
@@ -30,8 +18,8 @@ OBJ_DIR = objs
 OBJECTS	= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I./incl
+CFLAGS = -Wall -Wextra -Werror -g
+INCL = -I./incl
 
 RM = rm -rf
 
@@ -41,7 +29,7 @@ END_COLOR = \033[0m
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCL) -c $< -o $@
 
 all: $(NAME)
 
