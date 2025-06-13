@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:18:29 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/19 15:18:31 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/03/24 12:11:44 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int	guide(void)
 	printf("	(optional)\n");
 	printf("	5. the number of times each philosopher eats\n\n");
 	printf("	valid arguments:\n");
-	printf("	- the number of philosophers 1 - 200\n");
+	printf("	- the number of philosophers 1 - 1000\n");
 	printf("	- the duration of any action >= 1\n");
-	printf("	- the number of meals can be >= 0\n");
+	printf("	- the number of meals can be >= 1\n");
 	printf("	- please use positive integers <= INT_MAX\n\n");
 	return (ERROR);
 }
