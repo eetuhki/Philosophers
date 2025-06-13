@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:05 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/25 12:54:34 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/06/13 15:34:20 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ static void	*start_routine(void *arg)
 		if (ph->table->num_philos == 1)
 			return (single_philo(ph));
 		philo_is_thinking(ph, 1);
-		if (ph->id % 2 == 0)
-			philo_waits(ph, 10);
 		if (philo_eats(ph) == false)
 			break ;
 		if (philo_sleeps(ph) == false)
