@@ -1,6 +1,6 @@
-🍝 **Philosophers**
+# 🍝 **Philosophers**
 
-Solving the classic *Dining Philosophers* problem using threads and mutex locks.
+Solving the classic [*Dining Philosophers*](https://en.wikipedia.org/wiki/Dining_philosophers_problem) problem using threads and mutex locks.
 
 Picture this:
 Five philosophers sit around a circular table with a bowl of spaghetti. 
