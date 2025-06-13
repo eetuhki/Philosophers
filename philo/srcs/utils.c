@@ -6,7 +6,7 @@
 /*   By: eelaine <eelaine@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 11:13:10 by eelaine           #+#    #+#             */
-/*   Updated: 2025/03/19 13:16:21 by eelaine          ###   ########.fr       */
+/*   Updated: 2025/06/13 15:36:56 by eelaine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@ void	print_time_and_action(t_ph *ph, char *action, int protect)
 {
 	size_t	time;
 
-	if (ph->table->stop && protect)
-		return ;
+	if (protect)
+		usleep(1);
 	lock(ph);
+	if (ph->table->stop && protect)
+	{
+		unlock(ph);
+		return ;
+	}
 	time = gettime() - ph->table->start_time;
 	printf("%zu %d %s\n", time, ph->id, action);
 	unlock(ph);
@@ -49,9 +54,9 @@ int	philo_waits(t_ph *ph, size_t ms)
 	size_t	tmp;
 
 	tmp = gettime();
-	while ((gettime() - tmp < ms))
+	while (((gettime() - tmp) < ms))
 	{
-		usleep(500);
+		usleep(100);
 		if (should_stop(ph))
 			return (FAIL);
 	}
